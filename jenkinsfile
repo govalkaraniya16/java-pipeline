@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Clone') {
+            steps {
+                git branch: 'main', credentialsId: 'a75dca1c-7897-40e5-9f0b-4d7da210389d', url: 'https://github.com/govalkaraniya16/java-pipeline.git'
+            }
+        }
         stage('Compile') {
             steps {
                 bat 'javac Hello.java'
